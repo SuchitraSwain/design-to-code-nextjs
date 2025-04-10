@@ -28,8 +28,10 @@ function ProfileAvatar() {
 
   const getInitial = () => {
     const name = user?.user?.displayName || user?.user?.email || "U";
-    return name.charAt(0).toUpperCase();
+    return name?.charAt(0).toUpperCase();
   };
+
+  console.log(user?.user?.displayName?.charAt(0).toUpperCase());
 
   return (
     <div>
@@ -39,6 +41,9 @@ function ProfileAvatar() {
             <img
               src={user.user.photoURL}
               alt="profile"
+              onError={(e) => {
+                e.currentTarget.src = "/fallback-avatar.png";
+              }}
               className="w-[35px] h-[35px] rounded-full object-cover"
             />
           ) : (
