@@ -1,3 +1,4 @@
+
 import React from "react";
 import {
   Sandpack,
@@ -8,7 +9,7 @@ import {
 import Constants from "@/data/Constants";
 import { aquaBlue } from "@codesandbox/sandpack-themes";
 function CodeEditor({ codeResp, isReady }: any) {
-  console.log("API key present?", !!process.env.OPENROUTER_AI_API_KEY);
+  console.log("API key present?", process.env.OPENROUTER_AI_API_KEY);
 
   return (
     <div>
