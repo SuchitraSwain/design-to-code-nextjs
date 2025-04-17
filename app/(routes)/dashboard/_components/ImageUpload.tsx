@@ -16,7 +16,6 @@ import {
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { storage } from "@/configs/firebaseConfig";
 import axios from "axios";
-import { uuid } from "drizzle-orm/pg-core";
 import { useAuthContext } from "@/app/provider";
 import { useRouter } from "next/navigation";
 import Constants from "@/data/Constants";

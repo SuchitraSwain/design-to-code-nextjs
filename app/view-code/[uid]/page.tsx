@@ -58,7 +58,7 @@ function ViewCode() {
   const GenerateCode = async (record: RECORD) => {
     try {
       setLoading(true);
-      setCodeResp(""); // Optional: Clear previous output if needed
+      setCodeResp("");
 
       const res = await fetch("/api/ai-model", {
         method: "POST",
