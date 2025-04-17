@@ -6,7 +6,7 @@ const openai = new OpenAI({
   baseURL: "https://openrouter.ai/api/v1",
   apiKey:
     process.env.OPENROUTER_API_KEY ||
-    "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",
+    "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",
 });
 
 export const maxDuration = 60; //changed from 300 to 60
@@ -16,7 +16,7 @@ export async function POST(req: NextRequest) {
     const { model, description, imageUrl } = await req.json();
 
     const ModelObj = Constants.AiModelList.find((item) => item.name === model);
-    const modelName = ModelObj?.modelName ?? "google/gemini-2.0-flash-001";
+    const modelName = ModelObj?.modelName ?? "openai/gpt-3.5-turbo";
 
     const response = await openai.chat.completions.create({
       model: modelName,

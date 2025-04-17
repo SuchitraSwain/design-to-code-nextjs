@@ -42,7 +42,7 @@ export default {
         {
             name: 'Gemini Google',
             icon: '/google.png',
-            modelName: 'google/gemini-2.0-flash-001'
+            modelName: 'openai/gpt-3.5-turbo'
         },
         {
             name: 'llama By Meta',
