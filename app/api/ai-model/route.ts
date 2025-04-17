@@ -9,7 +9,7 @@ const openai = new OpenAI({
     "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",
 });
 
-export const maxDuration = 300;
+export const maxDuration = 60; //changed from 300 to 60
 
 export async function POST(req: NextRequest) {
   try {
