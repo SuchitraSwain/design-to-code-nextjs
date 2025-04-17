@@ -27,6 +27,9 @@ function DashboardProvider({
     });
   };
 
+  console.log("ENV KEY:", process.env.OPENROUTER_API_KEY);
+
+
   return (
     <SidebarProvider>
       <AppSidebar />

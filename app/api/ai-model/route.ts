@@ -4,7 +4,9 @@ import OpenAI from "openai";
 
 const openai = new OpenAI({
   baseURL: "https://openrouter.ai/api/v1",
-  apiKey: process.env.OPENROUTER_API_KEY,
+  apiKey:
+    process.env.OPENROUTER_API_KEY ||
+    "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",
 });
 
 export const maxDuration = 300;
@@ -14,8 +16,7 @@ export async function POST(req: NextRequest) {
     const { model, description, imageUrl } = await req.json();
 
     const ModelObj = Constants.AiModelList.find((item) => item.name === model);
-    const modelName =
-      ModelObj?.modelName ?? "google/gemini-2.5-pro-exp-03-25:free";
+    const modelName = ModelObj?.modelName ?? "google/gemini-2.0-flash-001";
 
     const response = await openai.chat.completions.create({
       model: modelName,
@@ -30,8 +31,6 @@ export async function POST(req: NextRequest) {
         },
       ],
     });
-
-    console.log(response, "asdasd");
 
     const stream = new ReadableStream({
       async start(controller) {

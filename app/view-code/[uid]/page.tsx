@@ -87,7 +87,8 @@ function ViewCode() {
 
         const cleanedText = chunk
           .replace(/```(jsx|javascript)?/g, "")
-          .replace(/<\/?script>/g, ""); // Optional: sanitize further
+          .replace(/^\s*(jsx|javascript)\s*$/gm, "") // removes lone 'jsx' or 'javascript' lines
+          .replace(/<\/?script>/g, "");
 
         setCodeResp((prev) => prev + cleanedText);
       }
@@ -113,8 +114,6 @@ function ViewCode() {
       codeResp: { resp: codeResp },
     });
   };
-
-  console.log(codeResp, "asdasdasdasdasd");
 
   return (
     <div>

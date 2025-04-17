@@ -44,7 +44,6 @@ const items = [
 
 export function AppSidebar() {
   const path = usePathname();
-  console.log(path);
   return (
     <Sidebar>
       <SidebarHeader>

@@ -6,7 +6,6 @@ import { usersTable } from "@/configs/schema";
 
 export async function POST(req: NextRequest) {
     const { userEmail, userName } = await req.json();
-    console.log(userEmail)
     // try {
     const result = await db.select().from(usersTable)
         .where(eq(usersTable.email, userEmail));

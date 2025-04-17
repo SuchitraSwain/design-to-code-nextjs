@@ -14,7 +14,6 @@ function Credits() {
 
     const GetUserCredits = async () => {
         const result = await axios.get('/api/user?email=' + user?.email);
-        console.log(result.data)
         setUserData(result.data);
     }
 
